@@ -2,51 +2,6 @@ import urllib.request
 import funktionen
 
 
-# with open("complete_data.txt", "a") as myfile:
-#     myfile.write("Sustainalytics"+"\n")
-#
-#
-# def sustainalytics(int):
-#
-#     txt_analytics = funktionen.geturl("https://www.sustainalytics.com/esg-ratings?currentpage=1")
-#     funktionen.speichern("save_file.html", txt_analytics)
-#     i = 1
-#     while i < 2:
-#         link = "https://www.sustainalytics.com/esg-ratings?industry=&currentpage="+str(i)
-#         print(link)
-#         txt_analytics = funktionen.geturl(link)
-#         print(txt_analytics)
-#     # Bearbeiten einer page:
-#
-#         link = "https://www.sustainalytics.com/"
-#         sublinks = funktionen.extrahieren(txt_analytics, 'esg-rating/', '"')
-#
-#         #aus = open("complete_data.txt","w",encoding = "utf-8")
-#
-#         for s in sublinks:
-#             print(link + "esg-rating/" + s)
-#
-#             txt_analytics = funktionen.geturl(link + "esg-rating/" + s)
-#             funktionen.speichern("subdomains.html", txt_analytics)
-#
-#
-#             data = funktionen.extrahieren(txt_analytics, '<h2 class="">', '</h2>')[0] +  ";" + \
-#                    funktionen.extrahieren(txt_analytics, '"col-xs-6 risk-rating-score"><span class="">', '</span></div>')[0] + ";" + \
-#                    funktionen.extrahieren(txt_analytics, '<p><strong class="industry-group">', '</strong> <span')[0] + "\n"
-#
-#             # aus.write(data)
-#             with open("complete_data.txt", "a") as myfile:
-#                 myfile.write(data)
-#
-#         i = i+1
-#
-# #print(sustainalytics(2))
-
-
-# with open("complete_data.txt", "a") as myfile:
-#     myfile.write("\n"+"\n"+"Corporate Human Rights Benchmark"+"\n")
-
-
 def chrb(int):
     txt_chrb = funktionen.geturl("https://www.worldbenchmarkingalliance.org/publication/chrb/companies/")
     funktionen.speichern("save_chrb.html", txt_chrb)
@@ -99,7 +54,6 @@ def chrb(int):
         # aus.write(data)
         with open("complete_data.csv", "a") as myfile:
             myfile.write(data+"|"+industry+"\n")
-
 
 
 print(chrb(2))
