@@ -9,15 +9,6 @@ def extrahieren(txt,von,bis):
         erg.append(erg1)
     return erg
 
-def sauber(txt):
-    repls = ".,;:_!\"'/()[]{}+<>*"
-    for r in repls:
-        txt = txt.replace(r, " ")
-        txt = txt.replace("- "," ")
-    while txt.count(" ") > 0:
-        txt = txt.replace(" ", " ")
-    return txt
-
 def geturl(url):
     from urllib.request import Request, urlopen
     ws = Request(url,headers={'User-Agent': 'Mozilla/5.0'})
