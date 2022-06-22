@@ -1,15 +1,41 @@
 import urllib.request
-import funktionen
+
+## Relevant functions 
+def extrahieren(txt,von,bis):
+    erg=[]
+    ps=txt.split(von)
+    ps.pop(0)
+    for p in ps:
+        erg1=p.split(bis)[0]
+        erg.append(erg1)
+    return erg
+
+def geturl(url):
+    from urllib.request import Request, urlopen
+    ws = Request(url,headers={'User-Agent': 'Mozilla/5.0'})
+    txt = urlopen(ws).read().decode("utf-8") #ws.read().decode("utf-8")
+    return txt
+
+def speichern(datei,txt):
+    aus = open(datei,"w",encoding="utf-8")
+    aus.write(txt)
+    aus.close
+
+def sauberleer(txt):
+    txt = txt.replace("\t"," ").replace("\n"," ")
+    #txt = txt.replace(" ","")
+    while txt.count("  "):
+        txt = txt.replace("  "," ")
+    return txt
 
 
+## Crawler
 def chrb(int):
     txt_chrb = funktionen.geturl("https://www.worldbenchmarkingalliance.org/publication/chrb/companies/")
     funktionen.speichern("save_chrb.html", txt_chrb)
 
     link = "https://www.worldbenchmarkingalliance.org/publication/chrb/companies/"
     sublinks = funktionen.extrahieren(txt_chrb, 'https://www.worldbenchmarkingalliance.org/publication/chrb/companies/', '"')
-
-    # aus = open("complete_data.txt","w",encoding = "utf-8")
 
     for s in sublinks:
         print(link + s)
@@ -56,4 +82,4 @@ def chrb(int):
             myfile.write(data+"|"+industry+"\n")
 
 
-print(chrb(2))
+print(chrb(0)
