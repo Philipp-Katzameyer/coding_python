@@ -82,4 +82,4 @@ def chrb(int):
             myfile.write(data+"|"+industry+"\n")
 
 
-print(chrb(0)
+print(chrb(0))
